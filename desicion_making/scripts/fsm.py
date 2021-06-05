@@ -48,7 +48,7 @@ if __name__ == "__main__":
 	scan_sub = rospy.Subscriber("/scan", LaserScan, callback)
 	cmd_topic  = rospy.Publisher("/cmd_vel", Twist,queue_size = 1)
 
-	sm = smach.StateMachine(outcomes = ["TURNING"])
+	sm = smach.StateMachine(outcomes = ["FINISH"])
 
 	with sm:
 		smach.StateMachine.add("STRAIGHT",CBState(straight_cb), {"go":"STRAIGHT", "escape":"TURNING"})
